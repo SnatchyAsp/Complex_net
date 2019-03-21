@@ -35,9 +35,21 @@ def hm4(ingraph):
     for i in range(0, len(k_shell_list)):
         for node in k_shell_list[i]:
             color_map[int(node)] = i*3
-    nx.draw_spring(ingraph,  node_color=color_map, node_size=10, edge_color="white")
-
+    nx.draw_spring(ingraph,  node_color=color_map, node_size=3, edge_color="black")
     plt.show()
+    return k_shell_list
+    # f = open('test.txt', 'w')
+    # t=list(ingraph)
+    # print(len(t))
+    # for i in range(0, len(k_shell_list)):
+    #     for j in range(len(k_shell_list[i])):
+    #         #f.write(k_shell_list[i][j]+" "+str(i+1)+"\n")
+    #         t[int(k_shell_list[i][j])]=str(i)
+    # for line in t:
+    #     f.write(line+"\n")
+    # f.close()
+
+
 
 
 

@@ -12,5 +12,5 @@ def hm1():
         graph.add_edge(*tuple(line))
     print(nx.info(graph))
     print("Average_clustering:  " + str(nx.average_clustering(graph)))
-
+    print("Average_path_length:   "+str(nx.average_shortest_path_length(graph)))
     return graph

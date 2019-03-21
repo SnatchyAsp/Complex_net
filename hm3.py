@@ -1,9 +1,11 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import math
-
+from scipy import optimize
 """等级性"""
 
+def f_1(x, A, B):
+    return A*x + B
 
 def hm3(ingraph):
     graph = nx.Graph(ingraph)
@@ -32,7 +34,10 @@ def hm3(ingraph):
     for i in range(1, len(k)):
         log_x.append(math.log(k[i]))
         log_y.append(math.log(ck[i]))
-
+    A, B = optimize.curve_fit(f_1, log_x, log_y)[0]
+    _X = [x for x in log_x]
+    _Y = [B + A * x for x in _X]
+    plt.plot(_X, _Y, "black")
     plt.plot(log_x, log_y, 'ro')
     plt.xlabel("log(k)")
     plt.ylabel("log(C(k))")
